@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <title>Submission Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    } 
+    .message
+    {
+        background-color: rgb(116, 0, 194);
+        color: white; 
+        font-size: 25px;
+        padding: 7px;
+        padding-left:10px ;
+    }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1 class="message">My Messages</h1>
+      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" style="text-align: left;">
+        <br>
+        <h4 style="color: black; font-weight: 500;">Post Your Message</h4>
+        <hr style="border: 0.7px solid rgb(163, 161, 161);">
+        <div class="card border-0.1" style="font-size:14px;">
+            <input type = "text" id="t1" placeholder="Type text here..*" style="border: 0px;border-bottom-color:black ;border-bottom-style:solid ;height: 50px;text-align: bottom;padding-top: 30px;font-size: 14px;margin-top: 0;padding-left: 15px;">
+            <hr style="border: 0.4px solid rgb(160, 156, 156);width: 97%;align-self: center;">
+            <textarea id="t2" placeholder="Type content here.. *" style="border: 0px;height: 110px; text-align: bottom;padding-top: 30px;font-size: 14px;padding-left: 15px;"></textarea>
+            <br>
+            <hr style="border: 1.3px solid rgb(64, 30, 255);width: 97%;align-self: center;">
+            <button class="btn btn-danger btn-md" id="click" name="Save Post" style="width: 105px;height: 50px;margin-left: 15px;margin-bottom: 20px;">Save Post</button>
+        </div>
+        <br>
+        <div id="work">
+            No Post Added Yet!
+        </div>
+        <div id="apnd"></div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function()
+{
+    $("#click").click(function(){
+        var cont1 = "";
+        var cont2 = "";
+        cont1 += $("#t1").val();
+        cont2 += $("#t2").val();
+        $("#work").replaceWith("");
+        $("#apnd").append("<div class='card border-0.1' style='font-size:14px;'><p>"+cont1+"</p><p>"+cont2+"</p><button id='btnn' style='width:10%;float:left;color:red;background-color:white; border:0px;'>Delete</button><button id='btnn2' style='width:10%;float:left;color:blue;background-color:white;border:0px; '>Edit</button></div>");
+        $("button#btnn").click(function ()
+        {
+            $(this).parent().remove();
+        });
+        $("button#btnn2").click(function ()
+        {
+            $("input").focus();
+        });
+    });
+});
+</script>
+</body>
+</html>
